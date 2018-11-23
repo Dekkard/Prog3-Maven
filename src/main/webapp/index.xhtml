@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Atividade 8 da aula 12</title>
+	<h:outputStylesheet library="/css" name="/styles.css" />
+</h:head>
+<h:body>
+	<p:breadCrumb>
+		<p:menuitem value="Home" url="index.jsf" />
+	</p:breadCrumb>
+	<h2>Acesso ao Banco de Dados</h2>
+	<h4>Utilzando de JSF para manipular postgresql.</h4>
+	<br />
+	<h:form>
+		<p:commandButton action="listaAluno" value="Listar aluno" />
+		<br />
+		<p:commandButton action="manipularAluno" value="Manipular aluno" />
+	</h:form>
+</h:body>
+</html>

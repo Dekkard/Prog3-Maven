@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Listar Alunos</title>
+	<h:outputStylesheet library="css" name="styles.css" />
+</h:head>
+<h:body>
+	<p:breadCrumb>
+		<p:menuitem value="Home" url="index.jsf" />
+		<p:menuitem value="Listar Alunos" url="listaAluno.jsf" />
+	</p:breadCrumb>
+	<h2>Lista de alunos cadastrados</h2>
+	<br />
+	<h:form>
+		<h:dataTable id="listaAlunos" value="#{alunoController.alunos}"
+			var="aluno">
+			<h:column>
+				<f:facet name="header">Matrícula</f:facet>#{aluno.matricula}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nome</f:facet>#{aluno.nome}
+			</h:column>
+			<h:column>
+				<f:facet name="header">RA</f:facet>#{aluno.ra}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Ação</f:facet>
+				<p:commandButton value="Deletar"
+					action="#{alunoController.deleteAluno(aluno.matricula)}"
+					rendered="true">
+					</p:commandButton>
+			</h:column>
+		</h:dataTable>
+		<br />
+		<h:outputText value="#{alunoController.mensagem}" />
+		<p:commandButton value="Voltar" action="index" />
+	</h:form>
+</h:body>
+</html>

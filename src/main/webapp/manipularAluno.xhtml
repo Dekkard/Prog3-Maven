@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Manipular Alunos</title>
+	<h:outputStylesheet library="css" name="styles.css" />
+</h:head>
+<h:body>
+	<p:breadCrumb>
+		<p:menuitem value="Home" url="index.jsf" />
+		<p:menuitem value="Manipular Alunos" url="manipularAluno.jsf" />
+	</p:breadCrumb>
+	<h:form>
+
+		<h3>Adicionando alunos</h3>
+		<hr />
+		<table>
+			<tr>
+				<td>Matrícula:</td>
+				<td><p:inputText id="matricula" size="5"
+						value="#{alunoController.matricula}" /></td>
+			</tr>
+			<tr>
+				<td>Nome:</td>
+				<td><p:inputText size="20" value="#{alunoController.nome}" /></td>
+			</tr>
+			<tr>
+				<td>RA:</td>
+				<td><p:inputText size="10" value="#{alunoController.ra}" /></td>
+			</tr>
+		</table>
+		<table>
+			<tr align="center">
+				<td><p:commandButton value="Inserir"
+						action="#{alunoController.addAluno}" rendered="true" /></td>
+				<td><p:commandButton value="Alterar"
+						action="#{alunoController.editAluno}" rendered="true" /></td>
+				<td><p:commandButton value="Buscar"
+						action="#{alunoController.findAluno}" val="alunoController.nome"
+						rendered="true" /></td>
+			</tr>
+		</table>
+
+		<br />
+		<h:outputText value="#{alunoController.mensagem}" />
+		<br />
+		<p:commandButton value="Voltar" action="index" />
+	</h:form>
+</h:body>
+</html>
